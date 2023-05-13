@@ -1,0 +1,112 @@
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  margin: 10px auto;
+  column-gap: 40px;
+  row-gap: 0;
+  max-width: 920px;
+  text-align: left;
+  grid-template-areas: "header header header header" "one two three four";
+}
+
+.mobile_container {
+  display: none;
+}
+.heading {
+  grid-area: header;
+}
+.grid_item {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 5px;
+}
+
+.grid_item_one {
+  grid-area: one;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("../../media/cute_cat.jpeg");
+}
+.grid_item_two {
+  grid-area: two;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("../../media/cat_keyboard.jpg");
+}
+.grid_item_three {
+  grid-area: three;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("../../media/cat_dog.jpg");
+}
+.grid_item_four {
+  grid-area: four;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("../../media/cat_pizza.jpeg");
+}
+
+.trending_card_title {
+  margin-bottom: 3px;
+}
+.trending_card_text {
+  margin-top: 0;
+  padding-right: 5px;
+  margin-bottom: 90px;
+}
+.trending_card_channel {
+  color: white;
+}
+.channel_logo {
+  width: 16px;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+@media (max-width: 919px) {
+  .grid_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "header header " "one two ";
+    max-width: 100%;
+  }
+  .grid_item_three,
+  .grid_item_four {
+    display: none;
+  }
+  .grid_item_one {
+    justify-self: end;
+  }
+  .heading {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header " "one ";
+    max-width: 100%;
+  }
+  .grid_item_three,
+  .grid_item_four,
+  .grid_item_two {
+    display: none;
+  }
+  .mobile_container {
+    display: block;
+    margin: 0 auto;
+  }
+  .desktop_container {
+    display: none;
+  }
+  .mobile_trending {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .trending_card_title {
+    padding-top: 5px;
+    margin-top: 0;
+  }
+  .heading {
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,45 @@
+.app_header {
+  margin: 0;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #a3a3a4;
+  display: flex;
+  justify-content: space-between;
+}
+.app_logo {
+  max-width: 100px;
+  margin-left: 10px;
+}
+.search_bar {
+  margin-left: 10px;
+  width: 300px;
+  border: 0.3px solid #9b9b9b;
+  border-radius: 32px;
+  background: #f8f9fa;
+  text-align: left;
+}
+.search_bar:hover {
+  background: white;
+}
+
+.search_icon {
+  width: 20px;
+  padding-left: 8px;
+  vertical-align: middle;
+}
+.search_input {
+  border: none;
+  background: transparent;
+  width: 260px;
+  font-size: 14px;
+  padding: 10px 5px 10px 5px;
+}
+.search_input:focus {
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .search_input {
+    width: 200px;
+  }
+}
