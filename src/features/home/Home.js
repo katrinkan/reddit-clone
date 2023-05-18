@@ -21,7 +21,7 @@ export default function Home() {
     } else {
       dispatch(fetchPosts(selectedSubreddit));
     }
-  }, [selectedSubreddit, searchTerm]);
+  }, [selectedSubreddit, searchTerm, dispatch]);
 
   const onToggleComments = (index) => {
     const getComments = (permalink) => {
