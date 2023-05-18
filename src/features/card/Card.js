@@ -8,7 +8,7 @@ import moment from "moment";
 import styles from "./Card.module.css";
 
 export default function Card(props) {
-  const { post, onToggleComments } = props;
+  const { post } = props;
   return (
     <article key={post.id}>
       <div className="card-container">
