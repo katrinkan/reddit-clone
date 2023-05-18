@@ -26,7 +26,12 @@ export default function Header() {
 
   return (
     <header className={styles.app_header}>
-      <img src={logo} className={styles.app_logo} alt="logo" />
+      <img
+        src={logo}
+        className={styles.app_logo}
+        alt="logo"
+        onClick={() => window.location.reload(false)}
+      />
       <div className={styles.search_bar}>
         <form onSubmit={onSearchTermSubmit}>
           <img src={search} alt="search icon" className={styles.search_icon} />
@@ -37,6 +42,7 @@ export default function Header() {
             onChange={onSearchTermChange}
             placeholder="Search caddit"
             className={styles.search_input}
+            onAbort={() => dispatch(setSearchTerm(""))}
           />
         </form>
       </div>
