@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./features/header/Header";
-import Card from "./features/card/Card";
+import Home from "./features/home/Home";
 import Trending from "./features/trending/Trending";
+
 import "./App.css";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Trending />
-      <Card />
+      <Home />
     </div>
   );
 }

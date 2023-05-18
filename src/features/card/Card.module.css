@@ -117,7 +117,7 @@
     padding-right: 0;
   }
   .comment_count {
-    padding-right: 0;
+    padding-right: 3px;
   }
   .mobile_none {
     display: none;

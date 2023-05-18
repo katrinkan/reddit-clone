@@ -3,71 +3,70 @@ import up from "../../media/arrow_up.png";
 import down from "../../media/arrow_down.png";
 import bubble from "../../media/bubble.png";
 import share from "../../media/share.png";
-import save from "../../media/save.png";
 import channel_logo from "../../media/caddit_logo.png";
+import moment from "moment";
 import styles from "./Card.module.css";
 
-export default function Card() {
+export default function Card(props) {
+  const { post, onToggleComments } = props;
   return (
-    <div className="card-container">
-      <div className={styles.grid_container}>
-        <div className={styles.grid_left}>
-          <img src={up} alt="arrow up" className={styles.arrows} />
-          <p className={styles.likes}>24.5k</p>
-          <img src={down} alt="arrow down" className={styles.arrows} />
-        </div>
-        <div className={styles.grid_right}>
-          <div className={styles.card_header}>
-            <div className={styles.card_header_left}>
-              <img
-                src={channel_logo}
-                alt="channel logo"
-                className={styles.channel_logo}
-              />
-
-              <small className={styles.channel}>r/StarWars</small>
-              <small>posted by</small>
-              <small>u/_RERO_</small>
-              <small>2 days ago</small>
-            </div>
-            <button className={styles.join_btn}>Subscribe</button>
+    <article key={post.id}>
+      <div className="card-container">
+        <div className={styles.grid_container}>
+          <div className={styles.grid_left}>
+            <img src={up} alt="arrow up" className={styles.arrows} />
+            <p className={styles.likes}>{post.score}</p>
+            <img src={down} alt="arrow down" className={styles.arrows} />
           </div>
-          <h3>
-            How is it that a throne is not destroyed after such an explosion?
-          </h3>
-          <img
-            src="https://preview.redd.it/1p8hv5hh04za1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=b073f63bd9891b8b6b88e9a4db40518a5d6289ac"
-            alt="test"
-            className={styles.content_img}
-          />
-          <div className={styles.card_footer}>
-            <img
-              src={up}
-              alt="arrow up"
-              className={`${styles.icons} ${styles.desktop_none}`}
-            />
-            <small className={styles.desktop_none}>24.5k</small>
-            <img
-              src={down}
-              alt="arrow down"
-              className={`${styles.icons} ${styles.desktop_none}`}
-            />
-            <img
-              src={bubble}
-              className={styles.icons}
-              alt="speechbubble icon"
-            />
-            <small className={styles.comment_count}>
-              2.8k <span className={styles.mobile_none}>Comments</span>
-            </small>
+          <div className={styles.grid_right}>
+            <div className={styles.card_header}>
+              <div className={styles.card_header_left}>
+                <img
+                  src={channel_logo}
+                  alt="channel logo"
+                  className={styles.channel_logo}
+                />
 
-            <img src={share} className={styles.icons} alt="share icon" />
-            <small className={styles.mobile_none}>Share</small>
-            <img src={save} className={styles.icons} alt="save icon" />
-            <small className={styles.mobile_none}>Save</small>
+                <small className={styles.channel}>r/{post.subreddit}</small>
+                <small>posted by</small>
+                <small>u/{post.author}</small>
+                <small>{moment.unix(post.created_utc).fromNow()}</small>
+              </div>
+            </div>
+            <h3>{post.title}</h3>
+            <img
+              src={post.url}
+              alt={post.selftext}
+              className={styles.content_img}
+            />
+            <div className={styles.card_footer}>
+              <img
+                src={up}
+                alt="arrow up"
+                className={`${styles.icons} ${styles.desktop_none}`}
+              />
+              <small className={styles.desktop_none}>24.5k</small>
+              <img
+                src={down}
+                alt="arrow down"
+                className={`${styles.icons} ${styles.desktop_none}`}
+              />
+              <img
+                src={bubble}
+                className={styles.icons}
+                alt="speechbubble icon"
+              />
+              <small className={styles.comment_count}>
+                {post.num_comments}{" "}
+                <span className={styles.mobile_none}>Comments</span>
+              </small>
+
+              <img src={share} className={styles.icons} alt="share icon" />
+              <small className={styles.mobile_none}>Share</small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
