@@ -5,24 +5,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSelectedSubreddit } from "../../store/redditSlice";
 
 export default function Trending() {
-  const [localSelectedSubreddit, setLocalSelectedSubreddit] = useState("");
+  const [localSelectedSubreddit, setLocalSelectedSubreddit] =
+    useState("/r/catpics/");
   const dispatch = useDispatch();
   const selectedSubreddit = useSelector(
     (state) => state.reddit.selectedSubreddit
   );
+  const handleSubredditChange = (value) => {
+    setLocalSelectedSubreddit(value);
+  };
 
   useEffect(() => {
     setLocalSelectedSubreddit(selectedSubreddit);
   }, [selectedSubreddit]);
 
-  const handleSubredditChange = (value) => {
-    setLocalSelectedSubreddit(value);
-    submitSubredditChange();
-  };
-
-  const submitSubredditChange = () => {
+  useEffect(() => {
     dispatch(setSelectedSubreddit(localSelectedSubreddit));
-  };
+  }, [localSelectedSubreddit, dispatch]);
+
   return (
     <div>
       <div className={`${styles.grid_container} ${styles.mobile_container}`}>

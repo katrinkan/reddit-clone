@@ -9,6 +9,7 @@
 .app_logo {
   max-width: 100px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .search_bar {
   margin-left: 10px;
