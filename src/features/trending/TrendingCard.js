@@ -6,6 +6,7 @@ export default function TrendingCard({ title, text, channel }) {
   return (
     <div className={styles.grid_item}>
       <h3 className={styles.trending_card_title}>{title}</h3>
+
       <p className={styles.trending_card_text}>{text}</p>
       <small className={styles.trending_card_channel}>
         <img

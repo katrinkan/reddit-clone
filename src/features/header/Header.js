@@ -12,7 +12,6 @@ export default function Header() {
 
   const onSearchTermChange = (event) => {
     setLocalSearchTerm(event.target.value);
-    console.log(localSearchTerm);
   };
 
   useEffect(() => {

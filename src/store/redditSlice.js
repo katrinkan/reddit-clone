@@ -33,7 +33,6 @@ const redditSlice = createSlice({
       state.error = true;
     },
     setSearchTerm(state, action) {
-      state.selectedSubreddit = "/search";
       state.searchTerm = action.payload;
     },
     setSelectedSubreddit(state, action) {
