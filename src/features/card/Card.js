@@ -1,4 +1,5 @@
 import React from "react";
+
 import up from "../../media/arrow_up.png";
 import down from "../../media/arrow_down.png";
 import bubble from "../../media/bubble.png";
@@ -34,11 +35,13 @@ export default function Card(props) {
               </div>
             </div>
             <h3>{post.title}</h3>
-            <img
-              src={post.url}
-              alt={post.selftext}
-              className={styles.content_img}
-            />
+            <div className={styles.content}>
+              <img
+                src={post.url}
+                alt={post.selftext}
+                className={styles.content_img}
+              />
+            </div>
             <div className={styles.card_footer}>
               <img
                 src={up}

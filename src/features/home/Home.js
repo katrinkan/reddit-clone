@@ -60,14 +60,15 @@ export default function Home() {
   }
   return (
     <>
-      {console.log(posts)}
-      {posts.map((post, index) => (
-        <Card
-          key={post.id}
-          post={post}
-          onToggleComments={onToggleComments(index)}
-        />
-      ))}
+      {posts.map((post, index) =>
+        post.gallery_data ? null : (
+          <Card
+            key={post.id}
+            post={post}
+            onToggleComments={onToggleComments(index)}
+          />
+        )
+      )}
     </>
   );
 }

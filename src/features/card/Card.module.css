@@ -10,6 +10,7 @@
 .grid_right {
   text-align: left;
   padding: 5px 0 5px 10px;
+  max-width: 98%;
 }
 .grid_left {
   background-color: #f8f9fa;
@@ -71,6 +72,7 @@
   overflow-clip-margin: content-box;
   overflow: clip;
   max-height: 512px;
+  max-width: 98%;
 }
 .desktop_none {
   display: none;
