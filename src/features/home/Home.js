@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <>
       {posts.map((post, index) =>
-        post.gallery_data || post.post_hint.includes("link") ? null : (
+        post.gallery_data || !post.domain.includes("redd") ? null : (
           <Card
             key={post.id}
             post={post}

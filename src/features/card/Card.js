@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import up from "../../media/arrow_up.png";
 import down from "../../media/arrow_down.png";
 import bubble from "../../media/bubble.png";
@@ -6,9 +6,22 @@ import share from "../../media/share.png";
 import channel_logo from "../../media/caddit_logo.png";
 import moment from "moment";
 import styles from "./Card.module.css";
+import Comments from "../comments/Comments";
 
 export default function Card(props) {
-  const { post } = props;
+  const { post, onToggleComments } = props;
+  const [commentsVisible, setCommentsVisible] = useState(false);
+
+  const toggleShowComments = (event) => {
+    if (!commentsVisible) {
+      event.preventDefault();
+      setCommentsVisible(true);
+      onToggleComments(post.permalink);
+    } else {
+      event.preventDefault();
+      setCommentsVisible(false);
+    }
+  };
 
   return (
     <article key={post.id}>
@@ -67,6 +80,7 @@ export default function Card(props) {
                 src={bubble}
                 className={styles.icons}
                 alt="speechbubble icon"
+                onClick={toggleShowComments}
               />
               <small className={styles.comment_count}>
                 {post.num_comments}{" "}
@@ -79,6 +93,7 @@ export default function Card(props) {
           </div>
         </div>
       </div>
+      {commentsVisible ? <Comments comments={post.comments} /> : null}
     </article>
   );
 }
