@@ -60,9 +60,8 @@ export default function Home() {
   }
   return (
     <>
-      {console.log(posts)}
       {posts.map((post, index) =>
-        post.gallery_data ? null : (
+        post.gallery_data || post.post_hint.includes("link") ? null : (
           <Card
             key={post.id}
             post={post}

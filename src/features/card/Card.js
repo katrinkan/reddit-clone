@@ -35,8 +35,8 @@ export default function Card(props) {
               </div>
             </div>
             <h3>{post.title}</h3>
+
             <div className={styles.content}>
-              {console.log(post)}
               {!post.secure_media ? (
                 <img
                   src={post.url}
