@@ -26,22 +26,20 @@
   cursor: pointer;
 }
 
-.grid_item_one {
+.grid_item_0 {
   grid-area: one;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url("../../media/cute_cat.jpeg");
 }
-.grid_item_two {
+.grid_item_1 {
   grid-area: two;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
     url("../../media/cat_keyboard.jpg");
 }
-.grid_item_three {
+.grid_item_2 {
   grid-area: three;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
     url("../../media/cat_dog.jpg");
 }
-.grid_item_four {
+.grid_item_3 {
   grid-area: four;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
     url("../../media/cat_pizza.jpeg");
@@ -69,11 +67,11 @@
     grid-template-areas: "header header " "one two ";
     max-width: 100%;
   }
-  .grid_item_three,
-  .grid_item_four {
+  .grid_item_2,
+  .grid_item_3 {
     display: none;
   }
-  .grid_item_one {
+  .grid_item_0 {
     justify-self: end;
   }
   .heading {
@@ -87,9 +85,9 @@
     grid-template-areas: "header " "one ";
     max-width: 100%;
   }
-  .grid_item_three,
-  .grid_item_four,
-  .grid_item_two {
+  .grid_item_2,
+  .grid_item_3,
+  .grid_item_1 {
     display: none;
   }
   .mobile_container {
