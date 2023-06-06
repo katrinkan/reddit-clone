@@ -60,6 +60,7 @@ export default function Home() {
   }
   return (
     <>
+      {console.log(posts)}
       {posts.map((post, index) =>
         post.gallery_data ? null : (
           <Card

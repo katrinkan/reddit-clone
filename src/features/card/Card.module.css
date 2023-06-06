@@ -74,6 +74,14 @@
   max-height: 512px;
   max-width: 98%;
 }
+.content_video {
+  object-fit: scale-down;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  max-height: 512px;
+  max-width: 98%;
+  margin: 0 auto;
+}
 .desktop_none {
   display: none;
 }
@@ -85,9 +93,7 @@
   .card_header_left {
     flex: 1;
   }
-  .content_img {
-    max-width: 98%;
-  }
+
   .grid_right {
     width: 100%;
   }
@@ -100,9 +106,7 @@
     display: grid;
     grid-template-columns: 1fr;
   }
-  .content_img {
-    max-width: 97%;
-  }
+
   .grid_left {
     display: none;
   }

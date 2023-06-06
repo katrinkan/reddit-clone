@@ -1,5 +1,4 @@
 import React from "react";
-
 import up from "../../media/arrow_up.png";
 import down from "../../media/arrow_down.png";
 import bubble from "../../media/bubble.png";
@@ -10,6 +9,7 @@ import styles from "./Card.module.css";
 
 export default function Card(props) {
   const { post } = props;
+
   return (
     <article key={post.id}>
       <div className="card-container">
@@ -36,11 +36,20 @@ export default function Card(props) {
             </div>
             <h3>{post.title}</h3>
             <div className={styles.content}>
-              <img
-                src={post.url}
-                alt={post.selftext}
-                className={styles.content_img}
-              />
+              {console.log(post)}
+              {!post.secure_media ? (
+                <img
+                  src={post.url}
+                  alt={post.selftext}
+                  className={styles.content_img}
+                />
+              ) : !post.secure_media.reddit_video ? null : (
+                <video
+                  src={post.secure_media.reddit_video.fallback_url}
+                  className={styles.content_video}
+                  controls
+                ></video>
+              )}
             </div>
             <div className={styles.card_footer}>
               <img
