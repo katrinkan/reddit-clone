@@ -1,4 +1,4 @@
-.grid_container {
+.gridContainer {
   background-color: white;
   border-radius: 4px;
   border: 1px solid #a3a3a4;
@@ -7,12 +7,12 @@
   display: grid;
   grid-template-columns: 1fr 10fr;
 }
-.grid_right {
+.gridRight {
   text-align: left;
   padding: 5px 0 5px 10px;
   max-width: 98%;
 }
-.grid_left {
+.gridLeft {
   background-color: #f8f9fa;
   padding-top: 10px;
 }
@@ -27,11 +27,11 @@
   padding-right: 5px;
 }
 .likes {
-  margin: 5px 0;
+  margin: 2px 0 6px 0;
   font-weight: 700;
   font-size: 12px;
 }
-.card_footer {
+.cardFooter {
   margin: 10px 0 10px 0;
   font-weight: 600;
 }
@@ -39,29 +39,29 @@
   color: black;
   font-weight: 600;
 }
-.channel_logo {
+.channelLogo {
   width: 22px;
   vertical-align: middle;
   padding-bottom: 3px;
   padding-right: 5px;
 }
 
-.card_header {
+.cardHeader {
   display: flex;
 }
-.card_header_left {
+.cardHeaderLeft {
   flex: 2;
   margin-top: 5px;
 }
 
-.content_img {
+.contentImg {
   object-fit: scale-down;
   overflow-clip-margin: content-box;
   overflow: clip;
   max-height: 512px;
   max-width: 98%;
 }
-.content_video {
+.contentVideo {
   object-fit: scale-down;
   overflow-clip-margin: content-box;
   overflow: clip;
@@ -69,50 +69,49 @@
   max-width: 98%;
   margin: 0 auto;
 }
-.desktop_none {
+.desktopNone {
   display: none;
 }
 
 @media (max-width: 700px) {
-  .grid_container {
+  .gridContainer {
     max-width: 700px;
   }
-  .card_header_left {
+  .cardHeaderLeft {
     flex: 1;
   }
 
-  .grid_right {
+  .gridRight {
     width: 100%;
   }
 }
 
 @media (max-width: 500px) {
-  .grid_container {
+  .gridContainer {
     margin: 20px auto 0 auto;
     max-width: 98%;
     display: grid;
     grid-template-columns: 1fr;
   }
 
-  .grid_left {
+  .gridLeft {
     display: none;
   }
-  .grid_right {
+  .gridRight {
     width: 97%;
     padding-right: 3px;
   }
-
-  .icons {
-    padding-left: 5px;
-    padding-right: 0;
+  .arrows {
+    margin-right: 5px;
   }
-  .comment_count {
+
+  .commentCount {
     padding-right: 3px;
   }
-  .mobile_none {
+  .mobileNone {
     display: none;
   }
-  .desktop_none {
+  .desktopNone {
     display: inline;
     padding-right: 1px;
   }

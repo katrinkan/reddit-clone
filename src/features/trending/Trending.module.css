@@ -1,4 +1,4 @@
-.grid_container {
+.gridContainer {
   display: grid;
   grid-template-columns: repeat(4, 200px);
   margin: 10px auto;
@@ -9,13 +9,13 @@
   grid-template-areas: "header header header header" "one two three four";
 }
 
-.mobile_container {
+.mobileContainer {
   display: none;
 }
 .heading {
   grid-area: header;
 }
-.grid_item {
+.gridItem {
   width: 200px;
   height: 200px;
   border-radius: 8px;
@@ -26,46 +26,46 @@
   cursor: pointer;
 }
 
-.grid_item_0 {
+.gridItem_0 {
   grid-area: one;
 }
-.grid_item_1 {
+.gridItem_1 {
   grid-area: two;
 }
-.grid_item_2 {
+.gridItem_2 {
   grid-area: three;
 }
-.grid_item_3 {
+.gridItem_3 {
   grid-area: four;
 }
 
-.trending_card_title {
+.trendingCardTitle {
   margin-bottom: 3px;
 }
-.trending_card_text {
+.trendingCardText {
   margin-top: 0;
   padding-right: 5px;
   margin-bottom: 90px;
 }
-.trending_card_channel {
+.trendingCardChannel {
   color: white;
 }
-.channel_logo {
+.channelLogo {
   width: 16px;
   padding-right: 3px;
   vertical-align: middle;
 }
 @media (max-width: 919px) {
-  .grid_container {
+  .gridContainer {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "header header " "one two ";
     max-width: 100%;
   }
-  .grid_item_2,
-  .grid_item_3 {
+  .gridItem_2,
+  .gridItem_3 {
     display: none;
   }
-  .grid_item_0 {
+  .gridItem_0 {
     justify-self: end;
   }
   .heading {
@@ -74,28 +74,28 @@
 }
 
 @media (max-width: 500px) {
-  .grid_container {
+  .gridContainer {
     grid-template-columns: 1fr;
     grid-template-areas: "header " "one ";
     max-width: 100%;
   }
-  .grid_item_2,
-  .grid_item_3,
-  .grid_item_1 {
+  .gridItem_2,
+  .gridItem_3,
+  .gridItem_1 {
     display: none;
   }
-  .mobile_container {
+  .mobileContainer {
     display: block;
     margin: 0 auto;
   }
-  .desktop_container {
+  .desktopContainer {
     display: none;
   }
-  .mobile_trending {
+  .mobileTrending {
     max-width: 200px;
     margin: 0 auto;
   }
-  .trending_card_title {
+  .trendingCardTitle {
     padding-top: 5px;
     margin-top: 0;
   }

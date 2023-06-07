@@ -63,8 +63,8 @@ export default function Card(props) {
   return (
     <article key={post.id}>
       <div className="card-container">
-        <div className={styles.grid_container}>
-          <div className={styles.grid_left}>
+        <div className={styles.gridContainer}>
+          <div className={styles.gridLeft}>
             <img
               src={arrowUp}
               alt="arrow up"
@@ -79,13 +79,13 @@ export default function Card(props) {
               onClick={() => handleVote(-1)}
             />
           </div>
-          <div className={styles.grid_right}>
-            <div className={styles.card_header}>
-              <div className={styles.card_header_left}>
+          <div className={styles.gridRight}>
+            <div className={styles.cardHeader}>
+              <div className={styles.cardHeadereft}>
                 <img
                   src={channel_logo}
                   alt="channel logo"
-                  className={styles.channel_logo}
+                  className={styles.channelLogo}
                 />
 
                 <small className={styles.channel}>r/{post.subreddit}</small>
@@ -96,34 +96,34 @@ export default function Card(props) {
             </div>
             <h3>{post.title}</h3>
 
-            <div className={styles.content}>
+            <div>
               {!post.secure_media ? (
                 <img
                   src={post.url}
                   alt={post.selftext}
-                  className={styles.content_img}
+                  className={styles.contentImg}
                 />
               ) : !post.secure_media.reddit_video ? null : (
                 <video
                   src={post.secure_media.reddit_video.fallback_url}
-                  className={styles.content_video}
+                  className={styles.contentVideo}
                   controls
                 ></video>
               )}
             </div>
 
-            <div className={styles.card_footer}>
+            <div className={styles.cardFooter}>
               <img
                 src={arrowUp}
                 alt="arrow up"
-                className={`${styles.icons} ${styles.desktop_none}`}
+                className={`${styles.icons} ${styles.desktopNone}`}
                 onClick={() => handleVote(1)}
               />
-              <small className={styles.desktop_none}>{voteValue}</small>
+              <small className={styles.desktopNone}>{voteValue}</small>
               <img
                 src={arrowDown}
                 alt="arrow down"
-                className={`${styles.icons} ${styles.desktop_none}`}
+                className={`${styles.icons} ${styles.desktopNone}`}
                 onClick={() => handleVote(-1)}
               />
 
@@ -133,14 +133,14 @@ export default function Card(props) {
                   className={styles.icons}
                   alt="speechbubble icon"
                 />
-                <small className={styles.comment_count}>
+                <small className={styles.commentCount}>
                   {post.num_comments}{" "}
-                  <span className={styles.mobile_none}>Comments</span>
+                  <span className={styles.mobileNone}>Comments</span>
                 </small>
               </button>
               <button onClick={toggleShare}>
                 <img src={share} className={styles.icons} alt="share icon" />
-                <small className={styles.mobile_none}>Share</small>
+                <small className={styles.mobileNone}>Share</small>
               </button>
             </div>
           </div>

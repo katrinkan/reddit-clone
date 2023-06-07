@@ -58,11 +58,11 @@ export default function Trending() {
 
   return (
     <div>
-      <div className={`${styles.grid_container} ${styles.mobile_container}`}>
-        <div className={styles.mobile_trending}>
+      <div className={`${styles.gridContainer} ${styles.mobileContainer}`}>
+        <div className={styles.mobileTrending}>
           <p className={styles.heading}>Forever trending</p>
           <div
-            className={`${styles.grid_item_0} ${styles.grid_item}`}
+            className={`${styles.gridItem_0} ${styles.gridItem}`}
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${trending[trendingIndex].url})`,
             }}
@@ -80,10 +80,10 @@ export default function Trending() {
         </div>
       </div>
 
-      <div className={`${styles.grid_container} ${styles.desktop_container}`}>
+      <div className={`${styles.gridContainer} ${styles.desktopContainer}`}>
         <p className={styles.heading}>Forever trending</p>
         <div
-          className={`${styles.grid_item_0} ${styles.grid_item}`}
+          className={`${styles.gridItem_0} ${styles.gridItem}`}
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${trending[0].url})`,
           }}
@@ -100,7 +100,7 @@ export default function Trending() {
         </div>
 
         <div
-          className={`${styles.grid_item_1} ${styles.grid_item}`}
+          className={`${styles.gridItem_1} ${styles.gridItem}`}
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${trending[1].url})`,
           }}
@@ -116,7 +116,7 @@ export default function Trending() {
           />
         </div>
         <div
-          className={`${styles.grid_item_2} ${styles.grid_item}`}
+          className={`${styles.gridItem_2} ${styles.gridItem}`}
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${trending[2].url})`,
           }}
@@ -132,7 +132,7 @@ export default function Trending() {
           />
         </div>
         <div
-          className={`${styles.grid_item_3} ${styles.grid_item}`}
+          className={`${styles.gridItem_3} ${styles.gridItem}`}
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${trending[3].url})`,
           }}

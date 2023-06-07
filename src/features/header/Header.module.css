@@ -1,4 +1,4 @@
-.app_header {
+.appHeader {
   margin: 0;
   padding: 10px;
   background-color: white;
@@ -6,12 +6,12 @@
   display: flex;
   justify-content: space-between;
 }
-.app_logo {
+.appLogo {
   max-width: 100px;
   margin-left: 10px;
   cursor: pointer;
 }
-.search_bar {
+.searchBar {
   margin-left: 10px;
   width: 300px;
   border: 0.3px solid #9b9b9b;
@@ -19,28 +19,28 @@
   background: #f8f9fa;
   text-align: left;
 }
-.search_bar:hover {
+.searchBar:hover {
   background: white;
 }
 
-.search_icon {
+.searchIcon {
   width: 20px;
   padding-left: 8px;
   vertical-align: middle;
 }
-.search_input {
+.searchInput {
   border: none;
   background: transparent;
   width: 259px;
   font-size: 14px;
   padding: 10px 5px 10px 5px;
 }
-.search_input:focus {
+.searchInput:focus {
   outline: none;
 }
 
 @media (max-width: 500px) {
-  .search_input {
+  .searchInput {
     width: 200px;
   }
 }

@@ -24,23 +24,23 @@ export default function Header() {
   };
 
   return (
-    <header className={styles.app_header}>
+    <header className={styles.appHeader}>
       <img
         src={logo}
-        className={styles.app_logo}
+        className={styles.appLogo}
         alt="logo"
         onClick={() => window.location.reload(false)}
       />
-      <div className={styles.search_bar}>
+      <div className={styles.searchBar}>
         <form onSubmit={onSearchTermSubmit}>
-          <img src={search} alt="search icon" className={styles.search_icon} />
+          <img src={search} alt="search icon" className={styles.searchIcon} />
 
           <input
             type="search"
             value={localSearchTerm}
             onChange={onSearchTermChange}
             placeholder="Search caddit"
-            className={styles.search_input}
+            className={styles.searchInput}
             onAbort={() => dispatch(setSearchTerm(""))}
           />
         </form>

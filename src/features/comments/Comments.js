@@ -4,14 +4,14 @@ import styles from "./Comments.module.css";
 
 export default function Comments({ comments }) {
   return (
-    <div className={styles.comment_container}>
+    <div className={styles.commentContainer}>
       {comments.map((comment) => {
         return (
-          <section className={styles.comment_section} key={comment.id}>
-            <h4 className={styles.comment_author}>{comment.author}</h4>
+          <section className={styles.commentSection} key={comment.id}>
+            <h4 className={styles.commentAuthor}>{comment.author}</h4>
             <small>{moment.unix(comment.created_utc).fromNow()}</small>
             <br />
-            <p className={styles.comment}>{comment.body}</p>
+            <p>{comment.body}</p>
           </section>
         );
       })}
