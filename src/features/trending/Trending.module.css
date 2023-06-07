@@ -44,7 +44,7 @@
 }
 .trendingCardText {
   margin-top: 0;
-  padding-right: 5px;
+  padding: 0 5px;
   margin-bottom: 90px;
 }
 .trendingCardChannel {
