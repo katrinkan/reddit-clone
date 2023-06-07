@@ -10,10 +10,12 @@ import channel_logo from "../../media/caddit_logo.png";
 import moment from "moment";
 import styles from "./Card.module.css";
 import Comments from "../comments/Comments";
+import Share from "../share/Share";
 
 export default function Card(props) {
   const { post, onToggleComments } = props;
   const [commentsVisible, setCommentsVisible] = useState(false);
+  const [shareVisible, setShareVisible] = useState(false);
   const [voteValue, setVoteValue] = useState(post.score);
   const [arrowUp, setArrowUp] = useState(up);
   const [arrowDown, setArrowDown] = useState(down);
@@ -45,6 +47,16 @@ export default function Card(props) {
       event.preventDefault();
       setCommentsVisible(false);
       setCommentsBubble(bubble);
+    }
+  };
+
+  const toggleShare = (event) => {
+    if (!shareVisible) {
+      event.preventDefault();
+      setShareVisible(true);
+    } else {
+      event.preventDefault();
+      setShareVisible(false);
     }
   };
 
@@ -99,36 +111,43 @@ export default function Card(props) {
                 ></video>
               )}
             </div>
+
             <div className={styles.card_footer}>
               <img
-                src={up}
+                src={arrowUp}
                 alt="arrow up"
                 className={`${styles.icons} ${styles.desktop_none}`}
+                onClick={() => handleVote(1)}
               />
               <small className={styles.desktop_none}>{voteValue}</small>
               <img
-                src={down}
+                src={arrowDown}
                 alt="arrow down"
                 className={`${styles.icons} ${styles.desktop_none}`}
+                onClick={() => handleVote(-1)}
               />
-              <img
-                src={commentsBubble}
-                className={styles.icons}
-                alt="speechbubble icon"
-                onClick={toggleShowComments}
-              />
-              <small className={styles.comment_count}>
-                {post.num_comments}{" "}
-                <span className={styles.mobile_none}>Comments</span>
-              </small>
 
-              <img src={share} className={styles.icons} alt="share icon" />
-              <small className={styles.mobile_none}>Share</small>
+              <button onClick={toggleShowComments}>
+                <img
+                  src={commentsBubble}
+                  className={styles.icons}
+                  alt="speechbubble icon"
+                />
+                <small className={styles.comment_count}>
+                  {post.num_comments}{" "}
+                  <span className={styles.mobile_none}>Comments</span>
+                </small>
+              </button>
+              <button onClick={toggleShare}>
+                <img src={share} className={styles.icons} alt="share icon" />
+                <small className={styles.mobile_none}>Share</small>
+              </button>
             </div>
           </div>
         </div>
       </div>
       {commentsVisible ? <Comments comments={post.comments} /> : null}
+      {shareVisible ? <Share permalink={post.permalink} /> : null}
     </article>
   );
 }

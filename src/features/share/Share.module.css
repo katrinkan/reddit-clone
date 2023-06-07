@@ -1,4 +1,4 @@
-.comment_container {
+.shareContainer {
   background-color: #f8f9fa;
   border-radius: 4px;
   border: 1px solid #a3a3a4;
@@ -6,26 +6,21 @@
   margin: 0 auto;
   max-width: 700px;
   color: #a3a3a4;
+  padding: 5px 0 15px;
 }
-.comment_section {
-  text-align: left;
-  padding-left: 10px;
-  padding-top: 20px;
-}
-.comment_author {
-  color: black;
-  display: inline;
-  padding-right: 20px;
+
+.shareContainer h4 {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 700px) {
-  .comment_container {
+  .shareContainer {
     max-width: 700px;
   }
 }
 
 @media (max-width: 500px) {
-  .comment_container {
+  .shareContainer {
     max-width: 98%;
   }
 }
