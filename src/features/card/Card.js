@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import up from "../../media/arrow_up.png";
+import upActive from "../../media/arrow_up_active.png";
 import down from "../../media/arrow_down.png";
+import downActive from "../../media/arrow_down_active.png";
 import bubble from "../../media/bubble.png";
+import bubbleActive from "../../media/bubble_active.png";
 import share from "../../media/share.png";
 import channel_logo from "../../media/caddit_logo.png";
 import moment from "moment";
@@ -11,15 +14,37 @@ import Comments from "../comments/Comments";
 export default function Card(props) {
   const { post, onToggleComments } = props;
   const [commentsVisible, setCommentsVisible] = useState(false);
+  const [voteValue, setVoteValue] = useState(post.score);
+  const [arrowUp, setArrowUp] = useState(up);
+  const [arrowDown, setArrowDown] = useState(down);
+  const [commentsBubble, setCommentsBubble] = useState(bubble);
+
+  const handleVote = (newValue) => {
+    if (voteValue === 0 && newValue === -1) {
+      setVoteValue(0);
+      setArrowDown(down);
+      setArrowUp(up);
+    } else if (newValue === 1) {
+      setVoteValue((prevValue) => prevValue + 1);
+      setArrowUp(upActive);
+      setArrowDown(down);
+    } else {
+      setVoteValue((prevValue) => prevValue - 1);
+      setArrowDown(downActive);
+      setArrowUp(up);
+    }
+  };
 
   const toggleShowComments = (event) => {
     if (!commentsVisible) {
       event.preventDefault();
       setCommentsVisible(true);
       onToggleComments(post.permalink);
+      setCommentsBubble(bubbleActive);
     } else {
       event.preventDefault();
       setCommentsVisible(false);
+      setCommentsBubble(bubble);
     }
   };
 
@@ -28,9 +53,19 @@ export default function Card(props) {
       <div className="card-container">
         <div className={styles.grid_container}>
           <div className={styles.grid_left}>
-            <img src={up} alt="arrow up" className={styles.arrows} />
-            <p className={styles.likes}>{post.score}</p>
-            <img src={down} alt="arrow down" className={styles.arrows} />
+            <img
+              src={arrowUp}
+              alt="arrow up"
+              className={styles.arrows}
+              onClick={() => handleVote(1)}
+            />
+            <p className={styles.likes}>{voteValue}</p>
+            <img
+              src={arrowDown}
+              alt="arrow down"
+              className={styles.arrows}
+              onClick={() => handleVote(-1)}
+            />
           </div>
           <div className={styles.grid_right}>
             <div className={styles.card_header}>
@@ -70,14 +105,14 @@ export default function Card(props) {
                 alt="arrow up"
                 className={`${styles.icons} ${styles.desktop_none}`}
               />
-              <small className={styles.desktop_none}>24.5k</small>
+              <small className={styles.desktop_none}>{voteValue}</small>
               <img
                 src={down}
                 alt="arrow down"
                 className={`${styles.icons} ${styles.desktop_none}`}
               />
               <img
-                src={bubble}
+                src={commentsBubble}
                 className={styles.icons}
                 alt="speechbubble icon"
                 onClick={toggleShowComments}

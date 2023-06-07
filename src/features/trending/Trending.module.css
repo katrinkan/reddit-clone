@@ -31,18 +31,12 @@
 }
 .grid_item_1 {
   grid-area: two;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url("../../media/cat_keyboard.jpg");
 }
 .grid_item_2 {
   grid-area: three;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url("../../media/cat_dog.jpg");
 }
 .grid_item_3 {
   grid-area: four;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url("../../media/cat_pizza.jpeg");
 }
 
 .trending_card_title {
