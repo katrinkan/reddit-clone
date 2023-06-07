@@ -6,6 +6,7 @@ import downActive from "../../media/arrow_down_active.png";
 import bubble from "../../media/bubble.png";
 import bubbleActive from "../../media/bubble_active.png";
 import share from "../../media/share.png";
+import shareActive from "../../media/share_active.png";
 import channel_logo from "../../media/caddit_logo.png";
 import moment from "moment";
 import styles from "./Card.module.css";
@@ -20,6 +21,7 @@ export default function Card(props) {
   const [arrowUp, setArrowUp] = useState(up);
   const [arrowDown, setArrowDown] = useState(down);
   const [commentsBubble, setCommentsBubble] = useState(bubble);
+  const [shareIcon, setShareIcon] = useState(share);
 
   const handleVote = (newValue) => {
     if (voteValue === 0 && newValue === -1) {
@@ -54,9 +56,11 @@ export default function Card(props) {
     if (!shareVisible) {
       event.preventDefault();
       setShareVisible(true);
+      setShareIcon(shareActive);
     } else {
       event.preventDefault();
       setShareVisible(false);
+      setShareIcon(share);
     }
   };
 
@@ -139,7 +143,11 @@ export default function Card(props) {
                 </small>
               </button>
               <button onClick={toggleShare}>
-                <img src={share} className={styles.icons} alt="share icon" />
+                <img
+                  src={shareIcon}
+                  className={styles.icons}
+                  alt="share icon"
+                />
                 <small className={styles.mobileNone}>Share</small>
               </button>
             </div>
