@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import up from "../../media/arrow_up.png";
 import upActive from "../../media/arrow_up_active.png";
 import down from "../../media/arrow_down.png";
@@ -20,8 +20,7 @@ export default function Card(props) {
   const [voteValue, setVoteValue] = useState(post.score);
   const [arrowUp, setArrowUp] = useState(up);
   const [arrowDown, setArrowDown] = useState(down);
-  const [commentsBubble, setCommentsBubble] = useState(bubble);
-  const [shareIcon, setShareIcon] = useState(share);
+  const commentsRef = useRef();
 
   const handleVote = (newValue) => {
     if (voteValue === 0 && newValue === -1) {
@@ -39,28 +38,12 @@ export default function Card(props) {
     }
   };
 
-  const toggleShowComments = (event) => {
+  const toggleShowComments = () => {
     if (!commentsVisible) {
-      event.preventDefault();
       setCommentsVisible(true);
       onToggleComments(post.permalink);
-      setCommentsBubble(bubbleActive);
     } else {
-      event.preventDefault();
       setCommentsVisible(false);
-      setCommentsBubble(bubble);
-    }
-  };
-
-  const toggleShare = (event) => {
-    if (!shareVisible) {
-      event.preventDefault();
-      setShareVisible(true);
-      setShareIcon(shareActive);
-    } else {
-      event.preventDefault();
-      setShareVisible(false);
-      setShareIcon(share);
     }
   };
 
@@ -131,9 +114,9 @@ export default function Card(props) {
                 onClick={() => handleVote(-1)}
               />
 
-              <button onClick={toggleShowComments}>
+              <button onClick={toggleShowComments} ref={commentsRef}>
                 <img
-                  src={commentsBubble}
+                  src={commentsVisible ? bubbleActive : bubble}
                   className={styles.icons}
                   alt="speechbubble icon"
                 />
@@ -142,9 +125,13 @@ export default function Card(props) {
                   <span className={styles.mobileNone}>Comments</span>
                 </small>
               </button>
-              <button onClick={toggleShare}>
+              <button
+                onClick={() => {
+                  setShareVisible(!shareVisible);
+                }}
+              >
                 <img
-                  src={shareIcon}
+                  src={shareVisible ? shareActive : share}
                   className={styles.icons}
                   alt="share icon"
                 />
