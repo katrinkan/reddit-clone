@@ -12,6 +12,7 @@ import moment from "moment";
 import styles from "./Card.module.css";
 import Comments from "../comments/Comments";
 import Share from "../share/Share";
+import useClickOutside from "../../hooks/useClickOutside";
 
 export default function Card(props) {
   const { post, onToggleComments } = props;
@@ -20,7 +21,10 @@ export default function Card(props) {
   const [voteValue, setVoteValue] = useState(post.score);
   const [arrowUp, setArrowUp] = useState(up);
   const [arrowDown, setArrowDown] = useState(down);
-  const commentsRef = useRef();
+  const commentsRef = useRef(null);
+  const shareRef = useRef(null);
+  useClickOutside(commentsRef, () => setCommentsVisible(false));
+  useClickOutside(shareRef, () => setShareVisible(false));
 
   const handleVote = (newValue) => {
     if (voteValue === 0 && newValue === -1) {
@@ -142,7 +146,9 @@ export default function Card(props) {
         </div>
       </div>
       {commentsVisible ? <Comments comments={post.comments} /> : null}
-      {shareVisible ? <Share permalink={post.permalink} /> : null}
+      {shareVisible ? (
+        <Share permalink={post.permalink} shareRef={shareRef} />
+      ) : null}
     </article>
   );
 }

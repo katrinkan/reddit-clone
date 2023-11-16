@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Share.module.css";
 
-export default function Modal({ permalink }) {
+export default function Modal({ permalink, shareRef }) {
   const [btnClicked, setBtnClicked] = useState(false);
   return (
-    <div className={styles.shareContainer}>
+    <div className={styles.shareContainer} ref={shareRef}>
       <h4>Share post:</h4>
       <button
         onClick={async () => {
