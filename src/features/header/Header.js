@@ -20,8 +20,10 @@ export default function Header() {
 
   const onSearchTermSubmit = (event) => {
     event.preventDefault();
-    dispatch(setSearchTerm(localSearchTerm));
+    dispatch(setSearchTerm(localSearchTerm.replace(" ", "+")));
   };
+
+  console.log(searchTerm);
 
   return (
     <header className={styles.appHeader}>

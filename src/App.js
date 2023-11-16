@@ -3,6 +3,7 @@ import Header from "./features/header/Header";
 import Home from "./features/home/Home";
 import Trending from "./features/trending/Trending";
 import "./App.css";
+import Footer from "./features/footer/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Trending />
 
       <Home />
+      <Footer />
     </div>
   );
 }
